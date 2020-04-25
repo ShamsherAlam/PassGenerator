@@ -2,22 +2,22 @@
 
 <div>
   <label>Enter Length</label>
-  <input />
+  <input (input) ="onChangeLength($event.target.value)"/>
 </div>
 
 <div>
   <label>User Letters</label>
-  <input type="checkbox">
+  <input (change)="onChangeUserLetter()" type="checkbox">
 </div>
 
 <div>
-  <label>User Letters</label>
-  <input type="checkbox">
+  <label>User Nummbers</label>
+  <input (change)="onChangeUserNumbers()" type="checkbox">
 </div>
 
 <div>
-  <label>User Letters</label>
-  <input type="checkbox">
+  <label>User Symbols</label>
+  <input (change)="onChangeUserSymbols()" type="checkbox">
 </div>
 
 <button (click)="onButtonClick()">Generator</button>
