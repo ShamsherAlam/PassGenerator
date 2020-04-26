@@ -1,28 +1,49 @@
-<h1>Password Generator</h1>
+<div class="container">
 
-<div>
-  <label>Enter Length</label>
-  <input (input) ="onChangeLength($event.target.value)"/>
-</div>
+  <div class="columns is-centered">
 
-<div>
-  <label>User Letters</label>
-  <input (change)="onChangeUserLetter()" type="checkbox">
-</div>
+    <div class="box column is-one-third">
+      <h1 class="title has-text-centered">Password Generator</h1>
 
-<div>
-  <label>User Nummbers</label>
-  <input (change)="onChangeUserNumbers()" type="checkbox">
-</div>
+      <div class="field">
+        <label>Enter Length</label>
+        <input placeholder="Enter the length of the password that you want to generate" class="input" (input)="onChangeLength($event.target.value)" />
+      </div>
+      <div class="field">
+        <p><strong>Please Select Atleast One From Below</strong></p>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUserLetter()" type="checkbox">
+            User Letters</label>
+        </div>
+      </div>
 
-<div>
-  <label>User Symbols</label>
-  <input (change)="onChangeUserSymbols()" type="checkbox">
-</div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUserNumbers()" type="checkbox">
+            User Nummbers</label>
+        </div>
+      </div>
 
-<button (click)="onButtonClick()">Generator</button>
 
-<div>
-  <label>Your Password</label>
-  <input [value] = 'password'>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUserSymbols()" type="checkbox">
+            User Symbols</label>
+        </div>
+      </div>
+      <button class="button is-link is-fullwidth" [disabled]="!(length && (useLetters || useSymbol || userNumber))"
+        (click)="onButtonClick()">
+        Generator</button>
+
+      <div class="box" *ngIf='password'>
+        <label>Your Password</label>
+        <input class="input" [value]='password'>
+      </div>
+    </div>
+  </div>
 </div>
